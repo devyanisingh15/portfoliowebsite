@@ -1,0 +1,719 @@
+/* ==========================================================================
+   debbie. — portfolio
+   curated by ui.debbie
+   --------------------------------------------------------------------------
+   1. Tokens
+   2. Base
+   3. Header
+   4. Hero + headline
+   5. Keyboard
+   6. Marquee
+   7. Contact + footer
+   8. Dialogs
+   9. Responsive
+   10. Reduced motion
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+:root {
+  --ink: #111111;          /* key lettering + outlines */
+  --text: #241c32;         /* primary text */
+  --accent: #d96c9c;       /* editorial accent */
+  --accent-on-dark: #ff9fca;
+  --plum: #2f2542;
+  --on-plum: #fbf6ff;
+  --marquee-bg: #ffdfa0;
+  --marquee-ink: #8b4d20;
+
+  --hero-bg: linear-gradient(90deg, #fff7fb 0%, #ffffff 50%, #f1f0ff 100%);
+
+  --font-display: "Satoshi", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+  --pad: 24px;             /* horizontal page padding — see section 9 */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--plum);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* 3. Header ---------------------------------------------------------------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 10px var(--pad);
+  background: var(--hero-bg);
+  border-bottom: 1px solid rgb(36 28 50 / 0.08);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 8px 2px;
+}
+
+.wordmark__dot {
+  color: var(--accent);
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  cursor: pointer;
+  transition: text-decoration-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.site-nav__link:hover {
+  text-decoration-color: var(--accent);
+}
+
+.site-nav__link--cta {
+  margin-left: 6px;
+  padding: 0 18px;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 3px 0 var(--accent);
+}
+
+.site-nav__link--cta:hover {
+  background: var(--text);
+  transform: translateY(-1px);
+}
+
+/* 4. Hero + headline ------------------------------------------------------- */
+.hero {
+  padding: clamp(18px, 2.6vh, 44px) var(--pad) clamp(12px, 2vh, 28px);
+  background: var(--hero-bg);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  /* ≈96px at 1440 wide (≈83px at 810 tall), ≈64px tablet, ≈45px at 390 */
+  font-size: clamp(40px, min(26px + 5vw, 10.2vh), 96px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  color: var(--text);
+  overflow-wrap: break-word;
+}
+
+.hero__line {
+  display: block;
+}
+
+.hero__title .accent-serif {
+  /* optical match: the serif runs smaller than Satoshi at the same size */
+  font-size: 1.08em;
+  line-height: 0;
+  padding-right: 0.04em;
+}
+
+/* 5. Keyboard -------------------------------------------------------------- */
+/*
+   The composition is drawn on a 900 × 312 coordinate system. Every length is
+   multiplied by --u, which is 1px on desktop and shrinks with the container so
+   the whole keyboard always fits: --u = min(1px, (available width) / 900).
+   Because the frame's height is also expressed in --u, following content flows
+   directly beneath the scaled keyboard.
+*/
+.keyboard-frame {
+  container-type: inline-size;
+  margin-top: clamp(16px, 3vh, 40px);
+}
+
+.keyboard {
+  --ring: 16px; /* clearance kept free for focus rings and shadows */
+  --u: min(1px, (100cqi - var(--ring)) / 900);
+  position: relative;
+  width: calc(900 * var(--u));
+  height: calc(312 * var(--u));
+  margin: 0 auto;
+  margin-block: calc(var(--ring) / 2);
+}
+
+.key {
+  --w: 146;
+  --h: 161;
+  --wall: color-mix(in srgb, var(--base) 78%, #000);
+  --face-y: 0px;
+  --base-y: 0px;
+  --line: max(1.25px, calc(2 * var(--u)));
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  z-index: 1;
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+  padding: 0;
+  border: 0;
+  border-radius: calc(38 * var(--u));
+  background: none;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key--lower {
+  z-index: 2;
+}
+
+.key--enter {
+  --w: 218;
+  --h: 300;
+}
+
+/* Everything inside a key is presentation: the key itself takes the pointer. */
+.key__base,
+.key__base * {
+  pointer-events: none;
+}
+
+.key__base {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: var(--line) solid var(--ink);
+  border-radius: calc(38 * var(--u));
+  /* darker side walls left and right of the face, front wall below it */
+  background:
+    linear-gradient(90deg,
+      var(--wall) 0 calc(9 * var(--u)),
+      var(--base) calc(13 * var(--u)) calc(100% - 13 * var(--u)),
+      var(--wall) calc(100% - 9 * var(--u)));
+  box-shadow: 0 calc(5 * var(--u) - var(--base-y)) 0 var(--ink);
+  transform: translateY(var(--base-y));
+  transition: transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out);
+}
+
+/* thin angled seams joining the face's lower corners to the base */
+.key__base::before,
+.key__base::after {
+  content: "";
+  position: absolute;
+  bottom: calc(5 * var(--u));
+  width: var(--line);
+  height: calc(30 * var(--u));
+  background: var(--ink);
+  opacity: 0.85;
+  transform-origin: bottom center;
+}
+
+.key__base::before {
+  left: calc(6 * var(--u));
+  transform: rotate(24deg);
+}
+
+.key__base::after {
+  right: calc(6 * var(--u));
+  transform: rotate(-24deg);
+}
+
+.key__face {
+  position: absolute;
+  top: calc(3 * var(--u));
+  left: calc(8 * var(--u));
+  right: calc(8 * var(--u));
+  bottom: calc(31 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(5 * var(--u));
+  padding: calc(8 * var(--u)) calc(8 * var(--u)) calc(10 * var(--u));
+  border: var(--line) solid var(--ink);
+  border-radius: calc(29 * var(--u));
+  background:
+    radial-gradient(120% 90% at 30% 12%, rgb(255 255 255 / 0.55), transparent 55%),
+    var(--face);
+  box-shadow: inset 0 calc(-4 * var(--u)) 0 rgb(0 0 0 / 0.06);
+  transform: translateY(var(--face-y));
+  transition: transform 180ms var(--ease-out);
+}
+
+.key__letter {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: calc(74 * var(--u));
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.key__caption {
+  max-width: 100%;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: max(6px, calc(10.5 * var(--u)));
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--ink);
+}
+
+/* Enter: return arrow in the exposed upper area, vertical caption on the right */
+.key--enter .key__face {
+  justify-content: flex-start;
+  padding: calc(34 * var(--u)) calc(22 * var(--u));
+}
+
+.key__icon {
+  width: calc(104 * var(--u));
+  height: auto;
+  margin-right: calc(24 * var(--u));
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+.key__caption--vertical {
+  position: absolute;
+  top: 50%;
+  right: calc(14 * var(--u));
+  font-size: max(6px, calc(12 * var(--u)));
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+/* States — hover / keyboard focus depress the face about 8px */
+@media (hover: hover) {
+  .key:hover {
+    --face-y: calc(8 * var(--u));
+  }
+}
+
+.key:focus-visible {
+  --face-y: calc(8 * var(--u));
+  outline: none;
+}
+
+.key:focus-visible .key__face {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #fff, inset 0 calc(-4 * var(--u)) 0 rgb(0 0 0 / 0.06);
+}
+
+/* deliberate press: the whole key sinks into its shadow */
+.key:active {
+  --face-y: calc(8 * var(--u));
+  --base-y: calc(5 * var(--u));
+}
+
+/* automatic sequence (script.js) */
+.key.is-auto-pressed {
+  --face-y: calc(9 * var(--u));
+  --base-y: calc(4 * var(--u));
+}
+
+.key.is-auto-pressed .key__face {
+  transition-duration: 140ms;
+}
+
+.key.is-auto-pressed .key__base {
+  transition-duration: 140ms;
+}
+
+/* 6. Marquee --------------------------------------------------------------- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(14px, 1.4vw, 22px);
+  border-block: 2px solid var(--ink);
+  background: var(--marquee-bg);
+  color: var(--marquee-ink);
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 16px + 1.3vw, 34px);
+  line-height: 1.2;
+}
+
+/* read once by assistive tech; shown visibly only for reduced motion */
+.marquee__static {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+}
+
+.marquee__group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee__item {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* identical trailing gap after every sentence, including the last in a group */
+.marquee__item::after {
+  content: "✦";
+  display: inline-block;
+  margin-inline: 0.7em;
+  font-size: 0.6em;
+  vertical-align: 0.2em;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* 7. Contact + footer ------------------------------------------------------ */
+.contact {
+  padding: clamp(72px, 10vw, 148px) var(--pad) clamp(64px, 8vw, 120px);
+  background: var(--plum);
+  color: var(--on-plum);
+}
+
+.contact__inner {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: end;
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(44px, 24px + 5.4vw, 112px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.contact__line {
+  display: block;
+}
+
+.contact__title .accent-serif {
+  color: var(--accent-on-dark);
+  font-size: 1.08em;
+  line-height: 0;
+}
+
+.contact__body {
+  display: grid;
+  gap: 20px;
+  max-width: 34rem;
+}
+
+.contact__invite {
+  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.3125rem);
+  line-height: 1.55;
+  color: rgb(251 246 255 / 0.86);
+}
+
+.contact__email {
+  justify-self: start;
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--accent-on-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
+  transition: color 160ms ease;
+}
+
+.contact__email:hover {
+  color: #fff;
+}
+
+.contact :focus-visible,
+.site-footer :focus-visible {
+  outline-color: #fff;
+}
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 22px var(--pad) 28px;
+  border-top: 1px solid rgb(251 246 255 / 0.14);
+  background: var(--plum);
+  color: rgb(251 246 255 / 0.72);
+  font-size: 0.875rem;
+}
+
+.site-footer__credit {
+  color: var(--on-plum);
+  font-weight: 500;
+}
+
+/* 8. Dialogs --------------------------------------------------------------- */
+.dialog {
+  width: min(480px, calc(100% - 2 * var(--pad)));
+  max-height: calc(100% - 2 * var(--pad));
+  padding: clamp(24px, 4vw, 36px);
+  border: 2px solid var(--ink);
+  border-radius: 28px;
+  background: linear-gradient(160deg, #fff7fb, #ffffff 55%, #f1f0ff);
+  color: var(--text);
+  box-shadow: 0 6px 0 var(--ink);
+  overflow: auto;
+}
+
+.dialog[open] {
+  animation: dialog-in 220ms var(--ease-out);
+}
+
+.dialog::backdrop {
+  background: rgb(36 28 50 / 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.dialog__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.dialog__text {
+  margin-top: 14px;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.dialog__link,
+.dialog__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+}
+
+.dialog__link {
+  background: #ffb7d5;
+  color: var(--ink);
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.dialog__close {
+  background: #fff;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.dialog__link:hover,
+.dialog__close:hover {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.dialog__link:active,
+.dialog__close:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* 9. Responsive ------------------------------------------------------------ */
+@media (max-width: 359px) {
+  :root { --pad: 20px; }
+}
+
+@media (min-width: 600px) {
+  :root { --pad: 32px; }
+}
+
+@media (min-width: 1100px) {
+  :root { --pad: 48px; }
+}
+
+@media (min-width: 900px) {
+  .contact__inner {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+
+  .contact__body {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 479px) {
+  .wordmark {
+    font-size: 1.5rem;
+  }
+
+  .site-nav__list {
+    gap: 0;
+  }
+
+  .site-nav__link {
+    padding: 0 8px;
+    font-size: 0.875rem;
+  }
+
+  .site-nav__link--cta {
+    margin-left: 4px;
+    padding: 0 12px;
+  }
+}
+
+/* 10. Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .marquee__track {
+    display: none;
+  }
+
+  .marquee__static {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    padding-inline: var(--pad);
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debbie — Portfolio</title>
+  <meta name="description" content="Debbie is a vibe coder with a curious mind, turning bold ideas into beautiful digital experiences.">
+  <meta name="theme-color" content="#fff7fb">
+
+  <!-- Satoshi (Fontshare) · Inter + Instrument Serif (Google Fonts) — all requested with display=swap -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="debbie. — back to top">debbie<span class="wordmark__dot">.</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li><button class="site-nav__link" type="button" data-dialog="dialog-work">Work</button></li>
+        <li><button class="site-nav__link" type="button" data-dialog="dialog-about">About</button></li>
+        <li><a class="site-nav__link site-nav__link--cta" href="#contact" data-contact-link>Let’s talk <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__line">Hi, I’m Debbie.</span>
+        <span class="hero__line">A <em class="accent-serif">vibe coder</em> with</span>
+        <span class="hero__line">a curious mind.</span>
+      </h1>
+
+      <div class="keyboard-frame">
+        <div class="keyboard" role="group" aria-label="Pick a key">
+          <button class="key" type="button" data-dialog="dialog-work" aria-label="Selected Work"
+            style="--x:73; --y:0; --face:#ffb7d5; --base:#d94f8a;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">P</span>
+              <span class="key__caption" aria-hidden="true">Selected Work</span>
+            </span></span>
+          </button>
+          <button class="key" type="button" data-dialog="dialog-about" aria-label="About Me"
+            style="--x:219; --y:0; --face:#c8b6ff; --base:#7153c7;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">O</span>
+              <span class="key__caption" aria-hidden="true">About Me</span>
+            </span></span>
+          </button>
+          <button class="key" type="button" data-dialog="dialog-process" aria-label="My Process"
+            style="--x:365; --y:0; --face:#b9f2df; --base:#2caa85;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">R</span>
+              <span class="key__caption" aria-hidden="true">My Process</span>
+            </span></span>
+          </button>
+          <button class="key" type="button" data-dialog="dialog-approach" aria-label="What I Do"
+            style="--x:511; --y:0; --face:#ffd98e; --base:#d28a24;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">T</span>
+              <span class="key__caption" aria-hidden="true">What I Do</span>
+            </span></span>
+          </button>
+
+          <button class="key key--lower" type="button" data-dialog="dialog-work" aria-label="Explore"
+            style="--x:0; --y:139; --face:#a9ddff; --base:#3886c9;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">F</span>
+              <span class="key__caption" aria-hidden="true">Explore</span>
+            </span></span>
+          </button>
+          <button class="key key--lower" type="button" data-dialog="dialog-about" aria-label="A Little About Me"
+            style="--x:146; --y:139; --face:#f4b8ff; --base:#a34cbf;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">O</span>
+              <span class="key__caption" aria-hidden="true">A Little About Me</span>
+            </span></span>
+          </button>
+          <button class="key key--lower" type="button" data-dialog="dialog-process" aria-label="The Process"
+            style="--x:292; --y:139; --face:#ffc3a0; --base:#d96c44;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">L</span>
+              <span class="key__caption" aria-hidden="true">The Process</span>
+            </span></span>
+          </button>
+          <button class="key key--lower" type="button" data-dialog="dialog-approach" aria-label="My Approach"
+            style="--x:438; --y:139; --face:#c6d7ff; --base:#5a78c9;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">I</span>
+              <span class="key__caption" aria-hidden="true">My Approach</span>
+            </span></span>
+          </button>
+          <a class="key key--lower" href="#contact" data-contact-link aria-label="Contact Me"
+            style="--x:584; --y:139; --face:#d9f28f; --base:#7aa52d;">
+            <span class="key__base"><span class="key__face">
+              <span class="key__letter" aria-hidden="true">O</span>
+              <span class="key__caption" aria-hidden="true">Contact Me</span>
+            </span></span>
+          </a>
+          <a class="key key--enter" href="#contact" data-contact-link aria-label="Let’s Talk"
+            style="--x:657; --y:0; --face:#ffe446; --base:#eab800;">
+            <span class="key__base"><span class="key__face">
+              <svg class="key__icon" viewBox="0 0 100 80" aria-hidden="true" focusable="false">
+                <path d="M84 8 V42 a8 8 0 0 1 -8 8 H18" />
+                <path d="M38 28 L16 50 L38 72" />
+              </svg>
+              <span class="key__caption key__caption--vertical" aria-hidden="true">Let’s Talk</span>
+            </span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" data-marquee>
+      <p class="marquee__static">Playful ideas. Thoughtful websites. · I turn bold ideas into beautiful digital experiences with GPT-6 Astra and a lot of heart. · Pick a key.</p>
+      <div class="marquee__track" aria-hidden="true">
+        <div class="marquee__group">
+          <span class="marquee__item">Playful ideas. Thoughtful websites. · I turn bold ideas into beautiful digital experiences with GPT-6 Astra and a lot of heart. · Pick a key.</span>
+        </div>
+        <div class="marquee__group">
+          <span class="marquee__item">Playful ideas. Thoughtful websites. · I turn bold ideas into beautiful digital experiences with GPT-6 Astra and a lot of heart. · Pick a key.</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__inner">
+        <h2 class="contact__title" id="contact-title">
+          <span class="contact__line">Good design</span>
+          <span class="contact__line">starts with <em class="accent-serif">hello.</em></span>
+        </h2>
+        <div class="contact__body">
+          <p class="contact__invite">Have a project in mind, a half-formed idea, or just want to say hi?</p>
+          <a class="contact__email" href="#contact" data-contact-link data-email-text>Email Debbie</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__credit">curated by ui.debbie</p>
+    <p class="site-footer__note">© <span data-year>2026</span> Debbie</p>
+  </footer>
+
+  <dialog class="dialog" id="dialog-work" aria-labelledby="dialog-work-title">
+    <h2 class="dialog__title" id="dialog-work-title">Selected Work</h2>
+    <p class="dialog__text">Selected website and identity concepts.</p>
+    <div class="dialog__actions">
+      <a class="dialog__link" href="#contact" data-contact-link>Let’s talk <span aria-hidden="true">↗</span></a>
+      <button class="dialog__close" type="button" data-close autofocus>Close</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="dialog-about" aria-labelledby="dialog-about-title">
+    <h2 class="dialog__title" id="dialog-about-title">About Me</h2>
+    <p class="dialog__text">Hi, I’m Debbie. I’m a vibe coder with a curious mind. I turn bold ideas into beautiful digital experiences with GPT-6 Astra and a lot of heart.</p>
+    <div class="dialog__actions">
+      <a class="dialog__link" href="#contact" data-contact-link>Let’s talk <span aria-hidden="true">↗</span></a>
+      <button class="dialog__close" type="button" data-close autofocus>Close</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="dialog-process" aria-labelledby="dialog-process-title">
+    <h2 class="dialog__title" id="dialog-process-title">My Process</h2>
+    <p class="dialog__text">We start with a conversation, shape the design together, then build and launch your website.</p>
+    <div class="dialog__actions">
+      <a class="dialog__link" href="#contact" data-contact-link>Let’s talk <span aria-hidden="true">↗</span></a>
+      <button class="dialog__close" type="button" data-close autofocus>Close</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="dialog-approach" aria-labelledby="dialog-approach-title">
+    <h2 class="dialog__title" id="dialog-approach-title">What I Do</h2>
+    <p class="dialog__text">Thoughtful design, clear communication, and a website built around your business.</p>
+    <div class="dialog__actions">
+      <a class="dialog__link" href="#contact" data-contact-link>Let’s talk <span aria-hidden="true">↗</span></a>
+      <button class="dialog__close" type="button" data-close autofocus>Close</button>
+    </div>
+  </dialog>
+</body>
+</html>
